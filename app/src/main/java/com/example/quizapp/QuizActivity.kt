@@ -12,7 +12,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
 class QuizActivity : AppCompatActivity() {
-
     private lateinit var progressBar: ProgressBar
     private lateinit var timerTextView: TextView
     private lateinit var option1: RelativeLayout
@@ -67,16 +66,22 @@ class QuizActivity : AppCompatActivity() {
         }
 
     private fun showQuestion() {
-        if (currentQuestionIndex < questions.size) {
-            val currentQuestion = questions[currentQuestionIndex]
-            findViewById<TextView>(R.id.textView2).text = currentQuestion.questionText
-            option1Text.text = currentQuestion.options[0]
-            option2Text.text = currentQuestion.options[1]
-            startTimer()
-        } else {
-            Toast.makeText(this, "퀴즈 완료!", Toast.LENGTH_SHORT).show()
-            navigateToResultScreen()
+        // 모든 문제를 다 푼 경우
+        if (currentQuestionIndex >= questions.size) {
+            countDownTimer?.cancel() // 타이머 취소
+            currentToast?.cancel()   // Toast 취소
+            navigateToResultScreen() // 결과 화면으로 이동
+            return
         }
+
+        // 현재 문제 가져오기
+        val currentQuestion = questions[currentQuestionIndex]
+        findViewById<TextView>(R.id.textView2).text = currentQuestion.questionText
+        option1Text.text = currentQuestion.options[0]
+        option2Text.text = currentQuestion.options[1]
+
+        // 타이머 시작
+        startTimer()
     }
 
     private var countDownTimer: CountDownTimer? = null
@@ -104,17 +109,26 @@ class QuizActivity : AppCompatActivity() {
         }.start()
     }
 
+    private var currentToast: Toast? = null
+
     private fun checkAnswer(selectedIndex: Int) {
         val currentQuestion = questions[currentQuestionIndex]
         val selectedAnswer = currentQuestion.options[selectedIndex]
 
-        if (selectedAnswer == currentQuestion.correctAnswer) {
-            Toast.makeText(this, "정답입니다!", Toast.LENGTH_SHORT).show()
-            cnt++
-        } else {
-            Toast.makeText(this, "틀렸습니다!", Toast.LENGTH_SHORT).show()
-        }
+        // 이전 Toast 취소
+        currentToast?.cancel()
 
+        // 새 Toast 생성
+        val message = if (selectedAnswer == currentQuestion.correctAnswer) {
+            cnt++
+            "정답입니다!"
+        } else {
+            "틀렸습니다!"
+        }
+        currentToast = Toast.makeText(this, message, Toast.LENGTH_SHORT)
+        currentToast?.show()
+
+        // 다음 문제로 이동
         currentQuestionIndex++
         showQuestion()
     }
