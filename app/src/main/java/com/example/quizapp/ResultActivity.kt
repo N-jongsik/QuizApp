@@ -14,7 +14,7 @@ class ResultActivity : AppCompatActivity() {
         enableEdgeToEdge()
         setContentView(R.layout.activity_result)
 
-        val correct = intent.getIntExtra("CORRECT",0)
+        val correct = intent.getIntExtra("CORRECT", 0)
         val nickname = intent.getStringExtra("NICKNAME")
         val textView = findViewById<TextView>(R.id.textView)
         val textContent = findViewById<TextView>(R.id.textContent)
@@ -30,7 +30,7 @@ class ResultActivity : AppCompatActivity() {
         textView.text = "${nickname}님의 맞은 갯수는\n${correct}개 입니다!"
 
 
-        textContent.text =  "$message"
+        textContent.text = "$message"
 
 
         val buttonRetry = findViewById<Button>(R.id.buttonRetry)
@@ -44,7 +44,30 @@ class ResultActivity : AppCompatActivity() {
         buttonNext.setOnClickListener {
             navigateToMainScreen()
         }
+
+        val buttonShare = findViewById<Button>(R.id.buttonShare)
+
+        buttonShare.setOnClickListener {
+            // 공유할 데이터 구성
+            val shareMessage = """
+        ${nickname}님의 퀴즈 결과
+        맞은 갯수: ${correct}개
+        ${message}
+    """.trimIndent()
+
+            // 공유 인텐트 생성
+            val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                type = "text/plain" // 공유 타입 설정 (텍스트)
+                putExtra(Intent.EXTRA_TEXT, shareMessage) // 공유할 내용
+            }
+
+            // 공유 인텐트 실행
+            startActivity(Intent.createChooser(shareIntent, "결과를 공유할 앱을 선택하세요"))
+        }
+
+
     }
+
     private fun navigateToMainScreen() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
