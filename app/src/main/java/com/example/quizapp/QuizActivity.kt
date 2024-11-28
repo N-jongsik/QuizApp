@@ -39,6 +39,11 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
+        val nickname = intent.getStringExtra("NICKNAME")
+        val textView3 = findViewById<TextView>(R.id.textView3)
+
+        textView3.text = "${nickname}님의 지식 수준 테스트!"
+
         // XML에서 뷰 가져오기
         progressBar = findViewById(R.id.progressBar)
         timerTextView = findViewById(R.id.textViewTimer)
@@ -90,6 +95,7 @@ class QuizActivity : AppCompatActivity() {
                 Toast.makeText(this@QuizActivity, "시간 초과!", Toast.LENGTH_SHORT).show()
                 currentQuestionIndex++
                 showQuestion()
+                //navigateToResultScreen()
             }
         }.start()
     }
@@ -110,6 +116,12 @@ class QuizActivity : AppCompatActivity() {
 
     private fun navigateToMainScreen() {
         val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish() // 현재 액티비티 종료
+    }
+
+    private fun navigateToResultScreen() {
+        val intent = Intent(this, ResultActivity::class.java)
         startActivity(intent)
         finish() // 현재 액티비티 종료
     }
