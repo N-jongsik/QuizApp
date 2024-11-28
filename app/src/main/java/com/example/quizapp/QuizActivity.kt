@@ -68,6 +68,8 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
+        textView3.text = "${nickname}님의 지식 수준 테스트!"
+  
     private fun navigateToMainScreen() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)

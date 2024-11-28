@@ -26,9 +26,13 @@ class MainActivity : AppCompatActivity() {
                 val nickname = nicknameInput.text.toString()
                 if (nickname.isNotEmpty()) {
                     Toast.makeText(this, "$nickname 님, 환영합니다!", Toast.LENGTH_SHORT).show()
-                    // 다른 액티비티로 이동할 수도 있음 (예: 게임 화면)
-                     startActivity(Intent(this, QuizActivity::class.java))
+
+                    // Intent 생성 및 데이터 전달
+                    val intent = Intent(this, QuizActivity::class.java)
                     intent.putExtra("NICKNAME", nickname)
+
+                    // 다른 액티비티로 이동
+                    startActivity(intent)
                 } else {
                     Toast.makeText(this, "닉네임을 입력하세요!", Toast.LENGTH_SHORT).show()
                 }
