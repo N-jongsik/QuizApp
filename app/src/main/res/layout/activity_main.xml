@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:backgroundTint="#FF1C87"
+            android:backgroundTint="#FFEB3B"
             android:elevation="6dp"
             android:theme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextColor="@android:color/white" />
@@ -39,7 +39,8 @@
         android:layout_marginHorizontal="20dp"
         android:gravity="center"
         android:hint="닉네임을 입력하세요!"
-        android:inputType="text" />
+        android:inputType="text"
+        android:textColor="@color/black" />
 
     <Button
         android:id="@+id/button"
@@ -47,7 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="10dp"
-        android:backgroundTint="#FF1C87"
-        android:text="게임시작" />
+        android:backgroundTint="#FFEB3B"
+        android:text="게임시작"
+        android:textColor="@color/black" />
 
 </LinearLayout>
