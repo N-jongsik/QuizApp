@@ -16,7 +16,7 @@ class QuizActivity : AppCompatActivity() {
     private lateinit var option1: FrameLayout
     private lateinit var option2: FrameLayout
 
-    private var timeLeft: Int = 10 // 타이머 시간 (초)
+    private var timeLeft: Int = 5 // 타이머 시간 (초)
     private var progress: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -45,7 +45,7 @@ class QuizActivity : AppCompatActivity() {
             override fun onTick(millisUntilFinished: Long) {
                 timeLeft--
                 timerTextView.text = "남은 시간 : ${timeLeft}초"
-                progress += 10
+                progress += 20
                 progressBar.progress = progress
             }
 
