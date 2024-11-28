@@ -25,16 +25,15 @@ class QuizActivity : AppCompatActivity() {
     private var currentQuestionIndex = 0 // 현재 문제 인덱스
 
     private val questions = listOf(
-        Question("바른 표현은?", listOf("주꾸미", "쭈꾸미"), "주꾸미"),
-        Question("애플의 한국어 뜻은?", listOf("사과", "바나나"), "사과"),
-        Question("한국의 수도는?", listOf("서울", "부산"), "서울"),
-        Question("1 + 1 = ?", listOf("2", "11"), "2"),
-        Question("가장 큰 행성은?", listOf("지구", "목성"), "목성"),
-        Question("코틀린은 어떤 언어?", listOf("프로그래밍 언어", "음식"), "프로그래밍 언어"),
-        Question("파이썬은?", listOf("동물", "프로그래밍 언어"), "프로그래밍 언어"),
-        Question("HTML은?", listOf("마크업 언어", "음식"), "마크업 언어"),
-        Question("안드로이드는?", listOf("운영체제", "과일"), "운영체제"),
-        Question("자바는?", listOf("섬", "프로그래밍 언어"), "프로그래밍 언어")
+        Question("바른 표현은?", listOf("주꾸미", "쭈꾸미"), "주꾸미","문어과의 연체동물 중 하나 표준어는 주꾸미 입니다!"),
+        Question("군대의 게급 순서로 맞는 것은?", listOf("이병-일병-상병", "일병-이병-삼병"), "이병-일병-상병","군대의 계급은 이병-일병-상병 순서입니다!"),
+        Question("바른 표현은?", listOf("메세지", "메시지"), "메시지","외래어 표기법에 따라 메시지로 표기!"),
+        Question("물티슈의 영어표기로 알맞는 것은?", listOf("water tissue", "wet tissue"), "wet tissue","물티슈의 영어표기 water tissue가 아닙니다!"),Question("바른 표현은?", listOf("눈곱", "눈꼽"), "눈곱","눈과 곱이 합해진 말 발음은 눈꼽입니다!"),
+        Question("바른 표현은?", listOf("곁땀", "겨땀"), "곁땀","겨드랑이에서 나는 땀을 뜻하는 표준어는 곁땀!"),
+        Question("호주의 수도는?", listOf("캔버라", "시드니"), "캔버라","호주의 수도는 캔버라 입니다!"),
+        Question("바른 표현은?", listOf("결제 서류", "결재 서류"), "결재 서류","결재 : 안건을 허가하거나 승인!"),
+        Question("순결 변함없는 사랑의 꽃말을 가진 꽃은?", listOf("해바라기", "백합"), "백합","백합의 꽃말은 변함없는 사랑입니다!"),
+        Question("바른 표현은?", listOf("내일 봬요", "내일 뵈요"), "내일 봬요","뵈어요의 줄임말 봬요 (뵈 = 하, 봬 = 해 로 바꿔 써서 확인하면 쉬워요!)")
     )
 
     override fun onCreate(savedInstanceState: Bundle?) {
