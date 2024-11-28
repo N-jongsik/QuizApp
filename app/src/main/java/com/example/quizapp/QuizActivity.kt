@@ -4,7 +4,9 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.widget.FrameLayout
+import android.widget.LinearLayout
 import android.widget.ProgressBar
+import android.widget.RelativeLayout
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -13,8 +15,8 @@ class QuizActivity : AppCompatActivity() {
 
     private lateinit var progressBar: ProgressBar
     private lateinit var timerTextView: TextView
-    private lateinit var option1: FrameLayout
-    private lateinit var option2: FrameLayout
+    private lateinit var option1: RelativeLayout
+    private lateinit var option2: RelativeLayout
     private lateinit var option1Text: TextView
     private lateinit var option2Text: TextView
 
