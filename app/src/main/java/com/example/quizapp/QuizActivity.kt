@@ -39,32 +39,32 @@ class QuizActivity : AppCompatActivity() {
         Question("바른 표현은?", listOf("내일 봬요", "내일 뵈요"), "내일 봬요","뵈어요의 줄임말 봬요 (뵈 = 하, 봬 = 해 로 바꿔 써서 확인하면 쉬워요!)")
     )
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_quiz)
+        override fun onCreate(savedInstanceState: Bundle?) {
+            super.onCreate(savedInstanceState)
+            setContentView(R.layout.activity_quiz)
 
-        nickname = intent.getStringExtra("NICKNAME")
-        val textView3 = findViewById<TextView>(R.id.textView3)
+            nickname = intent.getStringExtra("NICKNAME")
+            val textView3 = findViewById<TextView>(R.id.textView3)
 
-        textView3.text = "${nickname}님의 지식 수준 테스트!"
+            textView3.text = "${nickname}님의 지식 수준 테스트!"
 
-        // XML에서 뷰 가져오기
-        progressBar = findViewById(R.id.progressBar)
-        timerTextView = findViewById(R.id.textViewTimer)
-        option1 = findViewById(R.id.option1)
-        option2 = findViewById(R.id.option2)
+            // XML에서 뷰 가져오기
+            progressBar = findViewById(R.id.progressBar)
+            timerTextView = findViewById(R.id.textViewTimer)
+            option1 = findViewById(R.id.option1)
+            option2 = findViewById(R.id.option2)
 
-        // FrameLayout 내부 TextView 참조
-        option1Text = option1.findViewById(R.id.textview1)
-        option2Text = option2.findViewById(R.id.textview2) // 대소문자 수정
+            // FrameLayout 내부 TextView 참조
+            option1Text = option1.findViewById(R.id.textview1)
+            option2Text = option2.findViewById(R.id.textview2) // 대소문자 수정
 
-        // 문제 표시
-        showQuestion()
+            // 문제 표시
+            showQuestion()
 
-        // 선택지 클릭 이벤트
-        option1.setOnClickListener { checkAnswer(0) }
-        option2.setOnClickListener { checkAnswer(1) }
-    }
+            // 선택지 클릭 이벤트
+            option1.setOnClickListener { checkAnswer(0) }
+            option2.setOnClickListener { checkAnswer(1) }
+        }
 
     private fun showQuestion() {
         if (currentQuestionIndex < questions.size) {

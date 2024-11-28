@@ -40,7 +40,9 @@ class ResultActivity : AppCompatActivity() {
     }
 
     private fun navigateToQuizScreen() {
+        val nickname = intent.getStringExtra("NICKNAME") // 기존 전달받은 닉네임
         val intent = Intent(this, QuizActivity::class.java)
+        intent.putExtra("NICKNAME", nickname) // 닉네임 다시 전달
         startActivity(intent)
         finish() // 현재 액티비티 종료
     }
