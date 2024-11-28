@@ -23,12 +23,15 @@ class QuizActivity : AppCompatActivity() {
     private var timeLeft: Int = 5 // 타이머 시간 (초)
     private var progress: Int = 0
     private var currentQuestionIndex = 0 // 현재 문제 인덱스
+    private var cnt : Int = 0
+    private var nickname : String? =""
 
     private val questions = listOf(
         Question("바른 표현은?", listOf("주꾸미", "쭈꾸미"), "주꾸미","문어과의 연체동물 중 하나 표준어는 주꾸미 입니다!"),
         Question("군대의 게급 순서로 맞는 것은?", listOf("이병-일병-상병", "일병-이병-삼병"), "이병-일병-상병","군대의 계급은 이병-일병-상병 순서입니다!"),
         Question("바른 표현은?", listOf("메세지", "메시지"), "메시지","외래어 표기법에 따라 메시지로 표기!"),
-        Question("물티슈의 영어표기로 알맞는 것은?", listOf("water tissue", "wet tissue"), "wet tissue","물티슈의 영어표기 water tissue가 아닙니다!"),Question("바른 표현은?", listOf("눈곱", "눈꼽"), "눈곱","눈과 곱이 합해진 말 발음은 눈꼽입니다!"),
+        Question("물티슈의 영어표기로 알맞는 것은?", listOf("water tissue", "wet tissue"), "wet tissue","물티슈의 영어표기 water tissue가 아닙니다!"),
+        Question("바른 표현은?", listOf("눈곱", "눈꼽"), "눈곱","눈과 곱이 합해진 말 발음은 눈꼽입니다!"),
         Question("바른 표현은?", listOf("곁땀", "겨땀"), "곁땀","겨드랑이에서 나는 땀을 뜻하는 표준어는 곁땀!"),
         Question("호주의 수도는?", listOf("캔버라", "시드니"), "캔버라","호주의 수도는 캔버라 입니다!"),
         Question("바른 표현은?", listOf("결제 서류", "결재 서류"), "결재 서류","결재 : 안건을 허가하거나 승인!"),
@@ -40,7 +43,7 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
-        val nickname = intent.getStringExtra("NICKNAME")
+        nickname = intent.getStringExtra("NICKNAME")
         val textView3 = findViewById<TextView>(R.id.textView3)
 
         textView3.text = "${nickname}님의 지식 수준 테스트!"
@@ -72,7 +75,7 @@ class QuizActivity : AppCompatActivity() {
             startTimer()
         } else {
             Toast.makeText(this, "퀴즈 완료!", Toast.LENGTH_SHORT).show()
-            navigateToMainScreen()
+            navigateToResultScreen()
         }
     }
 
@@ -107,6 +110,7 @@ class QuizActivity : AppCompatActivity() {
 
         if (selectedAnswer == currentQuestion.correctAnswer) {
             Toast.makeText(this, "정답입니다!", Toast.LENGTH_SHORT).show()
+            cnt++
         } else {
             Toast.makeText(this, "틀렸습니다!", Toast.LENGTH_SHORT).show()
         }
@@ -123,6 +127,8 @@ class QuizActivity : AppCompatActivity() {
 
     private fun navigateToResultScreen() {
         val intent = Intent(this, ResultActivity::class.java)
+        intent.putExtra("CORRECT",cnt)
+        intent.putExtra("NICKNAME",nickname)
         startActivity(intent)
         finish() // 현재 액티비티 종료
     }
