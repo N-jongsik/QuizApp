@@ -23,6 +23,11 @@ class QuizActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_quiz)
 
+        val nickname = intent.getStringExtra("NICKNAME")
+        val textView3 = findViewById<TextView>(R.id.textView3)
+
+        textView3.text = "${nickname}님의 지식 수준 테스트!"
+
         // XML에서 뷰 가져오기
         progressBar = findViewById(R.id.progressBar)
         timerTextView = findViewById(R.id.textViewTimer)
@@ -68,8 +73,6 @@ class QuizActivity : AppCompatActivity() {
         }
     }
 
-        textView3.text = "${nickname}님의 지식 수준 테스트!"
-  
     private fun navigateToMainScreen() {
         val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
