@@ -56,8 +56,9 @@ class QuizActivity : AppCompatActivity() {
 
             override fun onFinish() {
                 Toast.makeText(this@QuizActivity, "시간 초과!", Toast.LENGTH_SHORT).show()
-                // 메인 화면으로 이동
-                navigateToMainScreen()
+                //결과 화면으로 이동
+                navigateToResultScreen()
+                //navigateToMainScreen()
             }
         }.start()
     }
@@ -75,6 +76,12 @@ class QuizActivity : AppCompatActivity() {
 
     private fun navigateToMainScreen() {
         val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish() // 현재 액티비티 종료
+    }
+
+    private fun navigateToResultScreen() {
+        val intent = Intent(this, ResultActivity::class.java)
         startActivity(intent)
         finish() // 현재 액티비티 종료
     }
