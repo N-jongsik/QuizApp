@@ -17,7 +17,6 @@ class QuizActivity : AppCompatActivity() {
         val nickname = intent.getStringExtra("NICKNAME")
         val textView3 = findViewById<TextView>(R.id.textView3)
 
-        // TextView에 닉네임 설정
-        textView3.text = nickname
+        textView3.text = "환영합니다, $nickname!"
     }
 }
