@@ -59,6 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:backgroundTint="#FF1C87"
             android:text="다시풀기" />
 
         <Button
@@ -67,6 +68,7 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
+            android:backgroundTint="#FF1C87"
             android:text="다음" />
     </LinearLayout>
 
