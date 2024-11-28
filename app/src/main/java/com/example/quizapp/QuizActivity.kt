@@ -17,6 +17,6 @@ class QuizActivity : AppCompatActivity() {
         val nickname = intent.getStringExtra("NICKNAME")
         val textView3 = findViewById<TextView>(R.id.textView3)
 
-        textView3.text = "환영합니다, $nickname!"
+        textView3.text = "${nickname}님의 지식 수준 테스트!"
     }
 }
