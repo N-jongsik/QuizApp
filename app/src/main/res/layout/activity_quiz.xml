@@ -9,6 +9,11 @@
     tools:context=".QuizActivity">
 
     <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:padding="16dp"
-        app:srcCompat="@drawable/Youknow" />
+        app:srcCompat="@drawable/youknow" />
 
     <TextView
         android:id="@+id/textView2"
