@@ -70,8 +70,7 @@
             android:layout_weight="1"
             android:background="#FFFFFF"
             android:lineSpacingExtra="4dp"
-            android:padding="8dp"
-            android:text="앞 단어의 뜻을 더해주는 점미사 [배기]는 소리나는 대로 표기. 따라서 '곱빼기'"
+            android:paddingStart="8dp"
             android:textColor="#000000"
             android:textSize="16sp" />
     </LinearLayout>
