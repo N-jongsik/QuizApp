@@ -19,7 +19,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
-            android:backgroundTint="#FF1C87"
+            android:backgroundTint="#FFEB3B"
             android:elevation="6dp"
             android:theme="@style/ThemeOverlay.AppCompat.Light"
             app:titleTextColor="@android:color/white" />
@@ -39,6 +39,7 @@
         android:layout_margin="20dp"
         android:gravity="center"
         android:text="TextView"
+        android:textColor="@color/black"
         android:textSize="30sp"
         android:textStyle="bold" />
 
@@ -86,8 +87,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="#FF1C87"
-            android:text="다시풀기" />
+            android:backgroundTint="#FFEB3B"
+            android:text="다시풀기"
+            android:textColor="@color/black" />
 
         <Button
             android:id="@+id/buttonNext"
@@ -95,8 +97,9 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:layout_weight="1"
-            android:backgroundTint="#FF1C87"
-            android:text="메인화면" />
+            android:backgroundTint="#FFEB3B"
+            android:text="메인화면"
+            android:textColor="@color/black" />
     </LinearLayout>
 
 </LinearLayout>

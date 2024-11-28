@@ -18,6 +18,7 @@
         android:layout_marginEnd="30dp"
         android:gravity="center"
         android:padding="16dp"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
@@ -74,6 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="안녕하세요"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </RelativeLayout>
 
@@ -95,6 +97,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
                 android:text="안녕하세요"
+                android:textColor="@color/black"
                 android:textSize="18sp" />
         </RelativeLayout>
 
